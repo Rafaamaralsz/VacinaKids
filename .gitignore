@@ -1,0 +1,24 @@
+# Dependencies
+/node_modules
+
+# Build
+/www
+/dist
+/.angular
+
+# IDE
+/.idea
+/.vscode/*
+!.vscode/extensions.json
+
+# System
+.DS_Store
+Thumbs.db
+
+# Firebase
+.firebase
+firebase-debug.log
+firestore-debug.log
+
+# Environment
+*.local

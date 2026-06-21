@@ -1,0 +1,203 @@
+export const MOCK_CHILDREN = [
+  {
+    id: 'child-1',
+    nome: 'Ana Oliveira',
+    dataNascimento: '2022-03-15',
+  },
+  {
+    id: 'child-2',
+    nome: 'Lucas Oliveira',
+    dataNascimento: '2024-06-20',
+  },
+];
+
+export const MOCK_VACCINES = [
+  // Ana Oliveira - 4 anos
+  {
+    id: 'vac-1',
+    childId: 'child-1',
+    nome: 'BCG',
+    dataPrevista: '2022-03-15',
+    dataAplicada: '2022-03-15',
+  },
+  {
+    id: 'vac-2',
+    childId: 'child-1',
+    nome: 'Hepatite B',
+    dataPrevista: '2022-03-15',
+    dataAplicada: '2022-03-15',
+  },
+  {
+    id: 'vac-3',
+    childId: 'child-1',
+    nome: 'Penta (DTP + Hib + Hep B)',
+    dataPrevista: '2022-05-15',
+    dataAplicada: '2022-05-20',
+  },
+  {
+    id: 'vac-4',
+    childId: 'child-1',
+    nome: 'VIP (Poliomielite)',
+    dataPrevista: '2022-05-15',
+    dataAplicada: '2022-05-20',
+  },
+  {
+    id: 'vac-5',
+    childId: 'child-1',
+    nome: 'Pneumocócica 10',
+    dataPrevista: '2022-07-15',
+    dataAplicada: '2022-07-18',
+  },
+  {
+    id: 'vac-6',
+    childId: 'child-1',
+    nome: 'Rotavírus',
+    dataPrevista: '2022-07-15',
+    dataAplicada: '2022-07-18',
+  },
+  {
+    id: 'vac-7',
+    childId: 'child-1',
+    nome: 'Meningocócica C',
+    dataPrevista: '2022-09-15',
+    dataAplicada: '2022-09-20',
+  },
+  {
+    id: 'vac-8',
+    childId: 'child-1',
+    nome: 'Febre Amarela',
+    dataPrevista: '2023-03-15',
+    dataAplicada: '2023-03-20',
+  },
+  {
+    id: 'vac-9',
+    childId: 'child-1',
+    nome: 'Tetra Viral (SCR + Varicela)',
+    dataPrevista: '2023-09-15',
+    dataAplicada: '2023-09-22',
+  },
+  {
+    id: 'vac-10',
+    childId: 'child-1',
+    nome: 'DTP Reforço',
+    dataPrevista: '2025-03-15',
+    dataAplicada: '2025-03-18',
+  },
+  {
+    id: 'vac-11',
+    childId: 'child-1',
+    nome: 'VIP Reforço',
+    dataPrevista: '2025-03-15',
+    dataAplicada: '2025-03-18',
+  },
+  {
+    id: 'vac-12',
+    childId: 'child-1',
+    nome: 'Influenza',
+    dataPrevista: '2026-04-01',
+    dataAplicada: null,
+  },
+  {
+    id: 'vac-13',
+    childId: 'child-1',
+    nome: 'HPV',
+    dataPrevista: '2025-06-01',
+    dataAplicada: null,
+  },
+  // Lucas Oliveira - 2 anos
+  {
+    id: 'vac-14',
+    childId: 'child-2',
+    nome: 'BCG',
+    dataPrevista: '2024-06-20',
+    dataAplicada: '2024-06-20',
+  },
+  {
+    id: 'vac-15',
+    childId: 'child-2',
+    nome: 'Hepatite B',
+    dataPrevista: '2024-06-20',
+    dataAplicada: '2024-06-20',
+  },
+  {
+    id: 'vac-16',
+    childId: 'child-2',
+    nome: 'Penta (DTP + Hib + Hep B)',
+    dataPrevista: '2024-08-20',
+    dataAplicada: '2024-08-25',
+  },
+  {
+    id: 'vac-17',
+    childId: 'child-2',
+    nome: 'VIP (Poliomielite)',
+    dataPrevista: '2024-08-20',
+    dataAplicada: '2024-08-25',
+  },
+  {
+    id: 'vac-18',
+    childId: 'child-2',
+    nome: 'Pneumocócica 10',
+    dataPrevista: '2024-10-20',
+    dataAplicada: '2024-10-22',
+  },
+  {
+    id: 'vac-19',
+    childId: 'child-2',
+    nome: 'Rotavírus',
+    dataPrevista: '2024-10-20',
+    dataAplicada: '2024-10-22',
+  },
+  {
+    id: 'vac-20',
+    childId: 'child-2',
+    nome: 'Meningocócica C',
+    dataPrevista: '2024-12-20',
+    dataAplicada: '2024-12-28',
+  },
+  {
+    id: 'vac-21',
+    childId: 'child-2',
+    nome: 'Febre Amarela',
+    dataPrevista: '2025-06-20',
+    dataAplicada: null,
+  },
+  {
+    id: 'vac-22',
+    childId: 'child-2',
+    nome: 'Tetra Viral (SCR + Varicela)',
+    dataPrevista: '2026-06-20',
+    dataAplicada: null,
+  },
+];
+
+export const MOCK_CAMPAIGNS = [
+  {
+    id: 'camp-1',
+    titulo: 'Campanha Nacional de Multivacinação',
+    descricao:
+      'Atualize a caderneta de vacinação do seu filho! Campanha gratuita em todos os postos de saúde do Brasil.',
+    publicoAlvo: 'Crianças de 0 a 15 anos',
+    dataInicio: '2026-03-01',
+    dataFim: '2026-06-30',
+    ativa: true,
+  },
+  {
+    id: 'camp-2',
+    titulo: 'Vacinação contra Influenza',
+    descricao:
+      'Proteja seu filho contra a gripe. Vacina disponível para crianças a partir de 6 meses de idade.',
+    publicoAlvo: 'Crianças de 6 meses a 5 anos',
+    dataInicio: '2026-04-01',
+    dataFim: '2026-05-31',
+    ativa: true,
+  },
+  {
+    id: 'camp-3',
+    titulo: 'Campanha de HPV',
+    descricao: 'Vacinação contra o HPV para adolescentes de 9 a 14 anos.',
+    publicoAlvo: 'Adolescentes de 9 a 14 anos',
+    dataInicio: '2025-03-01',
+    dataFim: '2025-12-31',
+    ativa: false,
+  },
+];

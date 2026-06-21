@@ -1,0 +1,23 @@
+<ion-card class="vaccine-card" [class]="'status-' + vaccine.status.toLowerCase()">
+  <ion-card-header>
+    <div class="header-row">
+      <ion-card-title>{{ vaccine.nome }}</ion-card-title>
+      <app-status-badge [status]="vaccine.status"></app-status-badge>
+    </div>
+  </ion-card-header>
+
+  <ion-card-content>
+    <div class="dates">
+      <div class="date-item">
+        <span class="label">Data prevista</span>
+        <span class="value">{{ vaccine.dataPrevista | date: 'dd/MM/yyyy' }}</span>
+      </div>
+      @if (vaccine.dataAplicada) {
+        <div class="date-item">
+          <span class="label">Data aplicada</span>
+          <span class="value applied">{{ vaccine.dataAplicada | date: 'dd/MM/yyyy' }}</span>
+        </div>
+      }
+    </div>
+  </ion-card-content>
+</ion-card>

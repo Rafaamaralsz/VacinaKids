@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>VacinaKids</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="dashboard-content">
+  <div class="page-container">
+    <section class="welcome-section">
+      <h1>Olá! 👋</h1>
+      <p>Acompanhe a vacinação dos seus filhos de forma simples e segura.</p>
+    </section>
+
+    @if (stats$ | async; as stats) {
+      <ion-grid class="stats-grid">
+        <ion-row>
+          <ion-col size="6" sizeMd="4" sizeLg="2">
+            <ion-card class="stat-card children">
+              <ion-card-content>
+                <ion-icon name="people-outline"></ion-icon>
+                <span class="value">{{ stats.totalCriancas }}</span>
+                <span class="label">Crianças</span>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" sizeMd="4" sizeLg="2">
+            <ion-card class="stat-card applied">
+              <ion-card-content>
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                <span class="value">{{ stats.aplicadas }}</span>
+                <span class="label">Aplicadas</span>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" sizeMd="4" sizeLg="2">
+            <ion-card class="stat-card pending">
+              <ion-card-content>
+                <ion-icon name="time-outline"></ion-icon>
+                <span class="value">{{ stats.pendentes }}</span>
+                <span class="label">Pendentes</span>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" sizeMd="4" sizeLg="2">
+            <ion-card class="stat-card overdue">
+              <ion-card-content>
+                <ion-icon name="alert-circle-outline"></ion-icon>
+                <span class="value">{{ stats.atrasadas }}</span>
+                <span class="label">Atrasadas</span>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" sizeMd="4" sizeLg="2">
+            <ion-card class="stat-card campaigns">
+              <ion-card-content>
+                <ion-icon name="megaphone-outline"></ion-icon>
+                <span class="value">{{ stats.campanhasAtivas }}</span>
+                <span class="label">Campanhas</span>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-card class="progress-card">
+        <ion-card-header>
+          <ion-card-title>Progresso Geral</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <app-progress-vaccination
+            [percentual]="stats.percentual"
+            [aplicadas]="stats.aplicadas"
+            [pendentes]="stats.pendentes + stats.atrasadas"
+            label="Vacinação geral da família"
+          ></app-progress-vaccination>
+        </ion-card-content>
+      </ion-card>
+    }
+
+    <section class="campaigns-section">
+      <div class="section-header">
+        <h2>Campanhas Ativas</h2>
+        <ion-button fill="clear" size="small" routerLink="/campanhas">Ver todas</ion-button>
+      </div>
+
+      <div class="campaigns-grid">
+        @for (campaign of activeCampaigns$ | async; track campaign.id) {
+          <app-campaign-card [campaign]="campaign" [featured]="true"></app-campaign-card>
+        }
+      </div>
+    </section>
+  </div>
+</ion-content>

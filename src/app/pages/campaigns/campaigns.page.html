@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Campanhas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-container">
+    <p class="subtitle">Fique por dentro das campanhas de vacinação disponíveis.</p>
+
+    <ion-segment value="ativas" (ionChange)="onFilterChange($event)">
+      <ion-segment-button value="ativas">
+        <ion-label>Ativas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="todas">
+        <ion-label>Todas</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div class="campaigns-grid">
+      @for (campaign of campaigns$ | async; track campaign.id) {
+        <app-campaign-card
+          [campaign]="campaign"
+          [featured]="campaign.isCurrentlyActive"
+        ></app-campaign-card>
+      } @empty {
+        <p class="empty-message">Nenhuma campanha encontrada.</p>
+      }
+    </div>
+  </div>
+</ion-content>

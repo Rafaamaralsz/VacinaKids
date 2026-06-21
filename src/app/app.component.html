@@ -1,0 +1,45 @@
+<ion-app>
+  <ion-split-pane contentId="main-content" when="lg">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>
+            <div class="menu-logo">
+              <ion-icon name="medkit"></ion-icon>
+              <span>VacinaKids</span>
+            </div>
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <ion-list lines="none" class="menu-list">
+          @for (item of menuItems; track item.url) {
+            <ion-item
+              [routerLink]="item.url"
+              routerLinkActive="selected"
+              button
+              detail="false"
+            >
+              <ion-icon [name]="item.icon" slot="start"></ion-icon>
+              <ion-label>{{ item.title }}</ion-label>
+            </ion-item>
+          }
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <div class="ion-page" id="main-content">
+      <ion-router-outlet></ion-router-outlet>
+
+      <nav class="bottom-nav">
+        @for (item of menuItems; track item.url) {
+          <a [routerLink]="item.url" routerLinkActive="active">
+            <ion-icon [name]="item.icon"></ion-icon>
+            <span>{{ item.title }}</span>
+          </a>
+        }
+      </nav>
+    </div>
+  </ion-split-pane>
+</ion-app>

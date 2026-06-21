@@ -1,0 +1,36 @@
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.child-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  h2 {
+    margin: 0;
+    color: var(--vk-brown);
+    font-weight: 700;
+  }
+}
+
+ion-segment {
+  margin-bottom: 20px;
+  --background: rgba(171, 194, 112, 0.15);
+  border-radius: 12px;
+}
+
+.vaccines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-message {
+  text-align: center;
+  color: var(--ion-color-medium);
+  padding: 32px;
+}

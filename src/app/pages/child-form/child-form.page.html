@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/criancas" text="Voltar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isEditMode ? 'Editar Criança' : 'Nova Criança' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+    <ion-list>
+      <ion-item>
+        <ion-input
+          label="Nome completo"
+          labelPlacement="stacked"
+          formControlName="nome"
+          placeholder="Ex: Ana Oliveira"
+        ></ion-input>
+      </ion-item>
+      @if (form.get('nome')?.invalid && form.get('nome')?.touched) {
+        <ion-note color="danger" class="error-note">Nome é obrigatório (mín. 2 caracteres)</ion-note>
+      }
+
+      <ion-item>
+        <ion-input
+          label="Data de nascimento"
+          labelPlacement="stacked"
+          type="date"
+          formControlName="dataNascimento"
+        ></ion-input>
+      </ion-item>
+      @if (form.get('dataNascimento')?.invalid && form.get('dataNascimento')?.touched) {
+        <ion-note color="danger" class="error-note">Data de nascimento é obrigatória</ion-note>
+      }
+    </ion-list>
+
+    <ion-button expand="block" type="submit" color="primary" class="submit-btn">
+      {{ isEditMode ? 'Salvar alterações' : 'Cadastrar criança' }}
+    </ion-button>
+  </form>
+</ion-content>

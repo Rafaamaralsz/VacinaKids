@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Crianças</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-container">
+    <p class="subtitle">Gerencie os perfis das crianças cadastradas.</p>
+
+    <ion-grid>
+      <ion-row>
+        @for (item of childrenWithStats$ | async; track item.child.id) {
+        <ion-col size="12" sizeMd="6" sizeLg="4">
+          <app-child-card [child]="item.child" [percentual]="item.percentual" [aplicadas]="item.aplicadas"
+            [pendentes]="item.pendentes"></app-child-card>
+        </ion-col>
+        }
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="bottom: 60px; right: 16px;">
+    <ion-fab-button color="secondary" routerLink="/criancas/nova">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

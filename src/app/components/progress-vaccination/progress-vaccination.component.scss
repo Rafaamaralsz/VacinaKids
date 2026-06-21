@@ -1,0 +1,47 @@
+.progress-container {
+  width: 100%;
+
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+
+    ion-text {
+      font-size: 0.85rem;
+      color: var(--ion-color-medium);
+    }
+
+    .percentual {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--vk-brown);
+    }
+  }
+
+  ion-progress-bar {
+    height: 10px;
+    border-radius: 5px;
+    --background: rgba(171, 194, 112, 0.2);
+    --progress-background: var(--vk-green);
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+
+    .stat {
+      font-size: 0.8rem;
+      font-weight: 500;
+
+      &.aplicadas {
+        color: var(--vk-green-shade);
+      }
+
+      &.pendentes {
+        color: var(--vk-orange);
+      }
+    }
+  }
+}

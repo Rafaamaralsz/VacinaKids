@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/criancas" text="Voltar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Histórico Vacinal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-container">
+    @if (child$ | async; as child) {
+      <div class="child-info">
+        <h2>{{ child.nome }}</h2>
+        <ion-chip color="primary">{{ child.idadeLabel }}</ion-chip>
+      </div>
+    }
+
+    <ion-segment [value]="selectedFilter" (ionChange)="onFilterChange($event)">
+      <ion-segment-button value="Todas">
+        <ion-label>Todas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Aplicada">
+        <ion-label>Aplicadas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Pendente">
+        <ion-label>Pendentes</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Atrasada">
+        <ion-label>Atrasadas</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div class="vaccines-list">
+      @for (vaccine of filteredVaccines$ | async; track vaccine.id) {
+        <app-vaccine-card [vaccine]="vaccine"></app-vaccine-card>
+      } @empty {
+        <p class="empty-message">Nenhuma vacina encontrada para este filtro.</p>
+      }
+    </div>
+  </div>
+</ion-content>

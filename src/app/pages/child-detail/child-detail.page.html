@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/criancas" text="Voltar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if (child$ | async; as child) {
+    <div class="page-container">
+      <ion-card class="profile-card">
+        <ion-card-header>
+          <ion-card-title>{{ child.nome }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list lines="none">
+            <ion-item>
+              <ion-icon name="calendar-outline" slot="start" color="primary"></ion-icon>
+              <ion-label>
+                <p>Data de nascimento</p>
+                <h3>{{ child.dataNascimento | date: 'dd/MM/yyyy' }}</h3>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="medkit-outline" slot="start" color="primary"></ion-icon>
+              <ion-label>
+                <p>Idade</p>
+                <h3>{{ child.idadeLabel }}</h3>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+
+          @if (stats$ | async; as stats) {
+            <app-progress-vaccination
+              [percentual]="stats.percentual"
+              [aplicadas]="stats.aplicadas"
+              [pendentes]="stats.pendentes + stats.atrasadas"
+              label="Situação vacinal"
+            ></app-progress-vaccination>
+          }
+
+          <div class="actions">
+            <ion-button fill="outline" [routerLink]="['/criancas', child.id, 'editar']">
+              <ion-icon slot="start" name="create-outline"></ion-icon>
+              Editar
+            </ion-button>
+            <ion-button fill="outline" color="danger" (click)="confirmDelete(child)">
+              <ion-icon slot="start" name="trash-outline"></ion-icon>
+              Remover
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+      <section class="vaccines-preview">
+        <div class="section-header">
+          <h2>Histórico Vacinal</h2>
+          <ion-button fill="clear" size="small" [routerLink]="['/criancas', child.id, 'historico']">
+            Ver completo
+          </ion-button>
+        </div>
+
+        <div class="vaccines-list">
+          @for (vaccine of vaccines$ | async; track vaccine.id) {
+            <app-vaccine-card [vaccine]="vaccine"></app-vaccine-card>
+          }
+        </div>
+      </section>
+    </div>
+  }
+</ion-content>

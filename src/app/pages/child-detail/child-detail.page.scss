@@ -1,0 +1,61 @@
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.profile-card {
+  border-radius: 16px;
+  margin-bottom: 24px;
+
+  ion-card-title {
+    font-size: 1.5rem;
+    color: var(--vk-brown);
+    font-weight: 800;
+  }
+
+  ion-item {
+    --background: transparent;
+    --padding-start: 0;
+
+    p {
+      font-size: 0.75rem;
+      color: var(--ion-color-medium);
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-weight: 600;
+      color: var(--vk-brown);
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+}
+
+.vaccines-preview {
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    h2 {
+      font-size: 1.25rem;
+      color: var(--vk-brown);
+      margin: 0;
+      font-weight: 700;
+    }
+  }
+
+  .vaccines-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

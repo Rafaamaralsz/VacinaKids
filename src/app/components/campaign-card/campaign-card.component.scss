@@ -1,0 +1,71 @@
+.campaign-card {
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+
+  &.featured {
+    background: linear-gradient(135deg, var(--vk-yellow) 0%, var(--vk-orange) 100%);
+    color: var(--vk-brown);
+
+    ion-card-title {
+      color: var(--vk-brown);
+    }
+
+    .description {
+      color: var(--vk-brown);
+    }
+
+    .meta-item {
+      color: var(--vk-brown);
+    }
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    ion-icon {
+      font-size: 24px;
+      color: var(--vk-orange);
+    }
+
+    ion-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--vk-brown);
+    }
+  }
+
+  .active-chip {
+    margin-top: 8px;
+    --background: var(--vk-green);
+    --color: var(--vk-brown);
+    font-weight: 600;
+  }
+
+  .description {
+    margin: 0 0 16px;
+    line-height: 1.5;
+    color: var(--ion-color-medium-shade);
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--ion-color-medium);
+
+    ion-icon {
+      font-size: 16px;
+      color: var(--vk-orange);
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.vaccine-card {
+  margin: 0;
+  border-radius: 12px;
+  border-left: 4px solid var(--vk-green);
+
+  &.status-atrasada {
+    border-left-color: var(--ion-color-danger);
+  }
+
+  &.status-pendente {
+    border-left-color: var(--vk-yellow);
+  }
+
+  &.status-aplicada {
+    border-left-color: var(--vk-green);
+  }
+
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  ion-card-title {
+    font-size: 1rem;
+    color: var(--vk-brown);
+    flex: 1;
+  }
+
+  .dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .date-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .label {
+      font-size: 0.75rem;
+      color: var(--ion-color-medium);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--vk-brown);
+
+      &.applied {
+        color: var(--vk-green-shade);
+      }
+    }
+  }
+}

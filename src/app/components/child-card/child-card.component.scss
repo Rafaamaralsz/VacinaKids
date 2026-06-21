@@ -1,0 +1,42 @@
+.child-card {
+  margin: 0;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(71, 60, 51, 0.1);
+
+  .card-header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--vk-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ion-icon {
+      font-size: 28px;
+      color: var(--vk-brown);
+    }
+  }
+
+  .info {
+    flex: 1;
+
+    ion-card-title {
+      font-size: 1.2rem;
+      color: var(--vk-brown);
+      font-weight: 700;
+    }
+
+    .age {
+      margin: 4px 0 0;
+      color: var(--ion-color-medium);
+      font-size: 0.9rem;
+    }
+  }
+}

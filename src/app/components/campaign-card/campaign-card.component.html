@@ -1,0 +1,29 @@
+<ion-card class="campaign-card" [class.featured]="featured">
+  <ion-card-header>
+    <div class="header-row">
+      <ion-icon name="megaphone-outline"></ion-icon>
+      <ion-card-title>{{ campaign.titulo }}</ion-card-title>
+    </div>
+    @if (featured) {
+      <ion-chip color="success" class="active-chip">Ativa</ion-chip>
+    }
+  </ion-card-header>
+
+  <ion-card-content>
+    <p class="description">{{ campaign.descricao }}</p>
+
+    <div class="meta">
+      <div class="meta-item">
+        <ion-icon name="people-outline"></ion-icon>
+        <span>{{ campaign.publicoAlvo }}</span>
+      </div>
+      <div class="meta-item">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <span>
+          {{ campaign.dataInicio | date: 'dd/MM/yyyy' }} —
+          {{ campaign.dataFim | date: 'dd/MM/yyyy' }}
+        </span>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,15 @@
+<div class="progress-container">
+  <div class="progress-header">
+    <ion-text>{{ label }}</ion-text>
+    <ion-text class="percentual">{{ percentual }}%</ion-text>
+  </div>
+
+  <ion-progress-bar [value]="progressValue" color="success"></ion-progress-bar>
+
+  @if (showDetails) {
+    <div class="stats-row">
+      <span class="stat aplicadas">{{ aplicadas }} aplicadas</span>
+      <span class="stat pendentes">{{ pendentes }} pendentes</span>
+    </div>
+  }
+</div>
